@@ -1,24 +1,42 @@
-import logo from './logo.svg';
+import { useState } from "react";
+import { Data } from "./utils/Data";
+import PieChart from "./components/PieChart";
+import BarChart from "./components/BarChart";
 import './App.css';
 
 function App() {
+  const [chartData, setChartData] = useState({
+    labels : Data.map((data) => data.year),
+    datasets : [
+      {
+        label: "Users Gained ",
+        data: Data.map((data) => data.userGain),
+        backgroundColor: [
+          "rgba(75,192,192,1)",
+          "#ecf0f1",
+          "#50AF95",
+          "#f3ba2f",
+          "#2a71d0"
+        ],
+        borderColor: "black",
+        borderWidth: 2
+      }
+    ]
+  })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Chart JS Testing Zone</h1>
+      <div className="grid-container">
+          <div className="grid-chart">
+            <h2>Pie Chart</h2>
+              <PieChart chartData={chartData}/>
+          </div>        
+          <div className="grid-chart">
+              <h2>Bar Chart</h2>
+              <BarChart chartData={chartData}/>
+          </div>
+      </div>  
+    </> 
   );
 }
 
