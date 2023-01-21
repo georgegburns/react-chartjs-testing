@@ -12,6 +12,7 @@ function PieChart({ chartData }) {
         data={
             {labels: chartData.labels,
             datasets: chartData.datasets}}
+        height = "300px"
         options={{
             plugins: {
             title: {

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Data } from "./utils/Data";
 import PieChart from "./components/PieChart";
 import BarChart from "./components/BarChart";
+import LineChart from "./components/LineChart";
 import './App.css';
 
 function App() {
@@ -35,6 +36,12 @@ function App() {
               <h2>Bar Chart</h2>
               <BarChart chartData={chartData}/>
           </div>
+      </div>  
+      <div className="grid-container">
+          <div className="grid-chart">
+            <h2>Line Chart</h2>
+              <LineChart chartData={chartData}/>
+          </div>        
       </div>  
     </> 
   );

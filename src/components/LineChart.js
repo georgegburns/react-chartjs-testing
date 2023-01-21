@@ -1,18 +1,18 @@
 import React from "react";
-import { Bar } from "react-chartjs-2";
-import {Chart, BarElement, Title, plugins, CategoryScale, LinearScale, BarController} from 'chart.js';
-Chart.register(BarElement);
+import { Line } from "react-chartjs-2";
+import {Chart, Title, plugins, CategoryScale, LinearScale, PointElement, LineElement} from 'chart.js';
 Chart.register(Title);
 Chart.register(plugins);
 Chart.register(CategoryScale);
 Chart.register(LinearScale);
-Chart.register(BarController);
+Chart.register(PointElement);
+Chart.register(LineElement);
 
 
-function BarChart({ chartData }) {
+function LineChart({ chartData }) {
   return (
     <div className="chart-container">
-      <Bar
+      <Line
         data={{
             labels : chartData.labels,
             datasets : chartData.datasets}}
@@ -33,4 +33,4 @@ function BarChart({ chartData }) {
     </div>
   );
 }
-export default BarChart;
+export default LineChart;
